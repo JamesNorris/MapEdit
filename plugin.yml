@@ -1,0 +1,20 @@
+name: MapEdit
+main: com.github.JamesNorris.MapEdit.Core.MapEdit
+version: 1.0.0
+load: POSTWORLD
+author: Jnorr44
+database: false
+prefix: MapEdit
+permissions:
+    mapedit.hidden:
+        description: Allows a player to be hidden from the map.
+        default: op
+    mapedit.color.blue:
+        description: Adds a blue color to the player on the map.
+        default: op
+    mapedit.color.red:
+        description: Adds a red color to the player on the map.
+        default: op
+    mapedit.color.green:
+        description: Adds a green color to the player on the map.
+        default: op

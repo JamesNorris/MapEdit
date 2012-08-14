@@ -1,0 +1,4 @@
+Track-Players: true
+#Tracks all player movement throughout the map.
+#NOTE: This does NOT use the PlayerMoveEvent, 
+#which causes a massive decrease in performance!
