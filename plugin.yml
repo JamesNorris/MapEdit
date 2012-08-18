@@ -1,14 +1,14 @@
 name: MapEdit
 main: com.github.JamesNorris.MapEdit.Core.MapEdit
-version: 1.0.0
+version: 1.0.2
 load: POSTWORLD
 author: Jnorr44
 database: false
 prefix: MapEdit
 permissions:
     mapedit.hidden:
-        description: Allows a player to be hidden from the map.
-        default: op
+        description: Allows a player to be hidden from the AFM dot on the map.
+        default: false    
     mapedit.color.blue:
         description: Adds a blue color to the player on the map.
         default: op

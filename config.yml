@@ -1,4 +1,18 @@
 Track-Players: true
 #Tracks all player movement throughout the map.
-#NOTE: This does NOT use the PlayerMoveEvent, 
-#which causes a massive decrease in performance!
+#NOTE: Players with the same map will default to
+#white cursors.
+
+Default-Player-Color: red
+#The default color of players on the map. 
+#Choices: red/green/blue
+#NOTE: There is a Bukkit/Minecraft bug with blue.
+
+Player-Ping: 3
+#The time in seconds before a players' position should
+#be updated on the map.
+#Higher number = better performance
+#NOTE: Only set this from 1-5!
+
+Debug: false
+#Sends debug messages to your console.
