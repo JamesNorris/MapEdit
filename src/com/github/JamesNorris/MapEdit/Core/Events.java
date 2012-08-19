@@ -22,9 +22,11 @@ import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemHeldEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.map.MapRenderer;
 import org.bukkit.map.MapView;
@@ -33,7 +35,7 @@ import com.github.JamesNorris.MapEdit.Visual.Rendering;
 
 public class Events implements Listener {
 
-	public static ArrayList<String> registered = new ArrayList<String>();
+	public static ArrayList<Short> registered = new ArrayList<Short>();
 
 	private final MapEdit plugin;
 
@@ -54,8 +56,8 @@ public class Events implements Listener {
 		 * If the item in hand is a map, and the player has not yet been registered...
 		 */
 
-		if (e.getType() == Material.MAP && !registered.contains(event.getPlayer().getName())) {
-			final short durability = e.getDurability();
+		final short durability = e.getDurability();
+		if (e.getType() == Material.MAP && !registered.contains(durability)) {
 			final MapView m = Bukkit.getServer().getMap(durability);
 
 			/**
@@ -71,7 +73,7 @@ public class Events implements Listener {
 				m.getRenderers().clear();
 				final MapRenderer mr = new Rendering(plugin);
 				m.addRenderer(mr);
-				registered.add(event.getPlayer().getName());
+				registered.add(durability);
 
 				/**
 				 * Print out the debug string
@@ -82,6 +84,60 @@ public class Events implements Listener {
 					MapEdit.g++;
 				}
 			}
+		}
+	}
+
+	/**
+	 * When the player joins, if they have a map in hand, registers its mapview
+	 * If the player has never been on before, gives them a map.
+	 * 
+	 * @param event
+	 */
+
+	@EventHandler public void PJE(PlayerJoinEvent event) {
+		Player p = event.getPlayer();
+		ItemStack e = p.getItemInHand();
+
+		/**
+		 * If the item in hand is a map, and the player has not yet been registered...
+		 */
+
+		short durability = e.getDurability();
+		if (e.getType() == Material.MAP && !registered.contains(durability)) {
+			MapView m = Bukkit.getServer().getMap(durability);
+
+			/**
+			 * If the mapview exists
+			 */
+
+			if (m != null) {
+
+				/**
+				 * Clear its renderers, and add the custom renderer
+				 */
+
+				m.getRenderers().clear();
+				MapRenderer mr = new Rendering(plugin);
+				m.addRenderer(mr);
+				registered.add(durability);
+
+				/**
+				 * Print out the debug string
+				 */
+
+				if (MapEdit.c) {
+					MapEdit.log.info("[MapEdit] [Debug] Registered a MapView.");
+					MapEdit.g++;
+				}
+			}
+		}
+
+		/**
+		 * Gives a player a map if they've never been on the server before
+		 */
+
+		if (!p.hasPlayedBefore() && MapEdit.o) {
+			p.getInventory().addItem(new ItemStack(Material.MAP, 1));
 		}
 	}
 }

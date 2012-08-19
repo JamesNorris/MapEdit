@@ -14,5 +14,8 @@ Player-Ping: 3
 #Higher number = better performance
 #NOTE: Only set this from 1-5!
 
+Starting-Map: true
+#Makes all new players start with a map.
+
 Debug: false
 #Sends debug messages to your console.

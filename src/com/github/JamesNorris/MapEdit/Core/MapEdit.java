@@ -29,13 +29,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.JamesNorris.MapEdit.Visual.Rendering;
 
 public class MapEdit extends JavaPlugin {
-	public static boolean a, c;
+	public static boolean a, c, o;
 	public static String d;
 	public static int e, g, j, l, m;
 	public short n;
 	public ArrayList<String> plugins = new ArrayList<String>();
 	public static Logger log = Logger.getLogger("Minecraft");
-	public String s1, s2, s3, s4;
+	public String s1, s2, s3, s4, s5;
 
 	@Override public void onEnable() {
 
@@ -58,12 +58,14 @@ public class MapEdit extends JavaPlugin {
 			c = getConfig().getBoolean("Debug");
 			d = getConfig().getString("Default-Player-Color");
 			j = getConfig().getInt("Player-Ping");
+			o = getConfig().getBoolean("Starting-Map");
 
 			/**
 			 * Load the strings
 			 */
 
 			s1 = "Track-Players: " + a;
+			s5 = "Starting-Map: " + o;
 			s2 = "Default-Player-Color: " + d;
 			s3 = "Player-Ping: " + j;
 			s4 = "Debug: " + c;
@@ -74,6 +76,7 @@ public class MapEdit extends JavaPlugin {
 
 			if (c) {
 				log.info("[MapEdit] [Debug] " + s1);
+				log.info("[MapEdit] [Debug] " + s5);
 				log.info("[MapEdit] [Debug] " + s2);
 				log.info("[MapEdit] [Debug] " + s3);
 				log.info("[MapEdit] [Debug] " + s4);
@@ -117,11 +120,12 @@ public class MapEdit extends JavaPlugin {
 			System.out.println("---------------[MapEdit] [Debug]---------------");
 			System.out.println("If there is a bug, post this as a ticket:");
 			System.out.println(s1);
+			System.out.println(s5);
 			System.out.println(s2);
 			System.out.println(s3);
 			System.out.println(s4);
 			System.out.println("MapEdit render number: " + e);
-			System.out.println("MapView registration attempts: " + g);
+			System.out.println("MapView registrations: " + g);
 			System.out.println("Server IP: " + Bukkit.getServer().getIp() + ":" + Bukkit.getServer().getPort());
 			System.out.println("Connection throttle: " + Bukkit.getServer().getConnectionThrottle());
 			System.out.println("Bukkit version: " + Bukkit.getServer().getBukkitVersion().toString());

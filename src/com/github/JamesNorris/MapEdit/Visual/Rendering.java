@@ -36,9 +36,8 @@ public class Rendering extends MapRenderer {
 	public Rendering(final MapEdit plugin) {}
 
 	public ArrayList<MapCursor> mapcurs = new ArrayList<MapCursor>();
-	public int a, b, f;
+	public int a, b, f, C, d;
 	public boolean armed;
-	public static int C;
 
 	/**
 	 * A custom map renderer, that changes the default map renderer
