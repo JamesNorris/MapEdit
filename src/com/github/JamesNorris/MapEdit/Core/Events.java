@@ -36,6 +36,7 @@ import com.github.JamesNorris.MapEdit.Visual.Rendering;
 public class Events implements Listener {
 
 	public static ArrayList<Short> registered = new ArrayList<Short>();
+	protected int n;
 
 	private final MapEdit plugin;
 

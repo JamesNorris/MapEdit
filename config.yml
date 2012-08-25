@@ -3,6 +3,9 @@ Track-Players: true
 #NOTE: Players with the same map will default to
 #white cursors.
 
+Starting-Map: true
+#Makes all new players start with a map.
+
 Default-Player-Color: red
 #The default color of players on the map. 
 #Choices: red/green/blue
@@ -14,8 +17,14 @@ Player-Ping: 3
 #Higher number = better performance
 #NOTE: Only set this from 1-5!
 
-Starting-Map: true
-#Makes all new players start with a map.
+Move-Map: false
+#Allows maps with 1 viewer to follow that viewer.
+#NOTE: THIS IS A FUTURE UPDATE, AND DOES NOT WORK NOW!
+
+Default-Scale: 3
+#Sets the scale that all maps will be set to.
+#NOTE: This will mess up existing maps slightly.
+#Choices: 1 - 5, 3 is NORMAL.
 
 Debug: false
 #Sends debug messages to your console.

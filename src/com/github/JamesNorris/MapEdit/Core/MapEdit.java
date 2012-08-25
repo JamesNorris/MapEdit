@@ -29,13 +29,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.github.JamesNorris.MapEdit.Visual.Rendering;
 
 public class MapEdit extends JavaPlugin {
-	public static boolean a, c, o;
+	public static boolean a, c, o, p;
 	public static String d;
-	public static int e, g, j, l, m;
+	public static int e, g, j, l, m, q;
 	public short n;
 	public ArrayList<String> plugins = new ArrayList<String>();
 	public static Logger log = Logger.getLogger("Minecraft");
-	public String s1, s2, s3, s4, s5;
+	public String s1, s2, s3, s4, s5, s6, s7;
 
 	@Override public void onEnable() {
 
@@ -59,6 +59,8 @@ public class MapEdit extends JavaPlugin {
 			d = getConfig().getString("Default-Player-Color");
 			j = getConfig().getInt("Player-Ping");
 			o = getConfig().getBoolean("Starting-Map");
+			p = getConfig().getBoolean("Move-Map");
+			q = getConfig().getInt("Default-Scale");
 
 			/**
 			 * Load the strings
@@ -68,6 +70,8 @@ public class MapEdit extends JavaPlugin {
 			s5 = "Starting-Map: " + o;
 			s2 = "Default-Player-Color: " + d;
 			s3 = "Player-Ping: " + j;
+			s6 = "Move-Map: " + p;
+			s7 = "Default-Scale: " + q;
 			s4 = "Debug: " + c;
 
 			/**
@@ -79,6 +83,8 @@ public class MapEdit extends JavaPlugin {
 				log.info("[MapEdit] [Debug] " + s5);
 				log.info("[MapEdit] [Debug] " + s2);
 				log.info("[MapEdit] [Debug] " + s3);
+				log.info("[MapEdit] [Debug] " + s6);
+				log.info("[MapEdit] [Debug] " + s7);
 				log.info("[MapEdit] [Debug] " + s4);
 			}
 		}
@@ -123,6 +129,8 @@ public class MapEdit extends JavaPlugin {
 			System.out.println(s5);
 			System.out.println(s2);
 			System.out.println(s3);
+			System.out.println(s6);
+			System.out.println(s7);
 			System.out.println(s4);
 			System.out.println("MapEdit render number: " + e);
 			System.out.println("MapView registrations: " + g);
